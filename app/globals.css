@@ -1,26 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #626c84;
+  --primary-accent: #2663eb;
+  --sidebar-bg: #ffffff;
+  --card-bg: #ffffff;
+  --card-shadow: 0 10px 40px -10px rgba(38, 99, 235, 0.1);
+  --shadow-antigravity: 0 20px 50px -12px rgba(38, 99, 235, 0.15);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-fira: var(--font-fira), sans-serif;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-fira), sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.shadow-antigravity {
+  box-shadow: var(--shadow-antigravity);
+}
+
+.saas-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-antigravity);
+  border: 1px solid rgba(38, 99, 235, 0.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+input {
+  outline: none;
+}
+
+.blog-content-area h2 {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #0F172A;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+}
+
+.blog-content-area h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.blog-content-area p {
+  margin-bottom: 1.75rem;
+  color: #475569;
+  line-height: 1.8;
+}
+
+.blog-content-area ul, .blog-content-area ol {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.blog-content-area ul {
+  list-style-type: disc;
+}
+
+.blog-content-area li {
+  margin-bottom: 0.75rem;
+  color: #475569;
+  padding-left: 0.5rem;
+}
+
+.blog-content-area blockquote {
+  border-left: 4px solid #2663eb;
+  padding: 1.5rem 2rem;
+  background: #f8fafc;
+  border-radius: 0 1rem 1rem 0;
+  font-style: italic;
+  color: #0F172A;
+  margin: 3rem 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.blog-content-area strong {
+  color: #0F172A;
+  font-weight: 700;
 }
