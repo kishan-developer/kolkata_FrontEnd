@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     ArrowRight,
     Landmark,
@@ -9,7 +9,14 @@ import {
     ShieldCheck
 } from "lucide-react";
 
-const services = [
+const iconMap: Record<string, React.ReactNode> = {
+    "GST Services": <Landmark className="w-8 h-8 text-[#2663eb]" />,
+    "Income Tax": <FileSearch className="w-8 h-8 text-[#2663eb]" />,
+    "Company Registration": <Building2 className="w-8 h-8 text-[#2663eb]" />,
+    "Trademark Services": <ShieldCheck className="w-8 h-8 text-[#2663eb]" />,
+};
+
+const fallbackServices = [
     {
         title: "GST Services",
         icon: <Landmark className="w-8 h-8 text-[#2663eb]" />,
@@ -18,16 +25,17 @@ const services = [
             "GST Return Filing",
             "GST Amendment",
             "GST Reconciliation",
+            "GST Refund",
         ],
         linkText: "Explore GST Services",
-        link: "#",
+        link: "/services/gst-registration",
     },
     {
         title: "Income Tax",
         icon: <FileSearch className="w-8 h-8 text-[#2663eb]" />,
         items: ["ITR Filing", "TDS Filing", "Tax Planning", "Accounting Services"],
         linkText: "Explore Income Tax Services",
-        link: "#",
+        link: "/services/income-tax-filing",
     },
     {
         title: "Company Registration",
@@ -39,7 +47,7 @@ const services = [
             "Director KYC",
         ],
         linkText: "Start Your Company Today",
-        link: "#",
+        link: "/services/company-registration",
     },
     {
         title: "Trademark Services",
@@ -51,11 +59,50 @@ const services = [
             "Trademark Renewal",
         ],
         linkText: "Protect Your Brand",
-        link: "#",
+        link: "/services/trademark",
     },
 ];
 
 export default function Services() {
+    const [services, setServices] = useState(fallbackServices);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchServices() {
+            try {
+                const response = await fetch('http://localhost:2001/api/v1/services?featured=true&limit=4');
+                const data = await response.json();
+                
+                if (data.success && data.data.services.length > 0) {
+                    const mappedServices = data.data.services.map((service: any) => ({
+                        title: service.title,
+                        icon: iconMap[service.title] || <Building2 className="w-8 h-8 text-[#2663eb]" />,
+                        items: service.benefits.slice(0, 4),
+                        linkText: `Explore ${service.title}`,
+                        link: `/services/${service.slug}`,
+                    }));
+                    setServices(mappedServices);
+                }
+            } catch (error) {
+                console.error('Error fetching services:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchServices();
+    }, []);
+
+    if (loading) {
+        return (
+            <section className="relative py-32 bg-white min-h-screen flex flex-col justify-center">
+                <div className="text-center">
+                    <div className="inline-block w-8 h-8 border-2 border-[#2663eb] border-t-transparent rounded-full animate-spin"></div>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section className="relative py-32 bg-white bg-cover bg-center bg-fixed min-h-screen flex flex-col justify-center"
         // style={{

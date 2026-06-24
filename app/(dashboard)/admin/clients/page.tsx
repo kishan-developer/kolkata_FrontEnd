@@ -113,10 +113,10 @@ export default function ClientManagementPage() {
   }, [searchQuery, filters, clients]);
 
   const stats = [
-    { label: "Total Clients", value: "1,248", icon: Users, color: "bg-blue-50 text-[#2663eb]" },
-    { label: "Active Mandates", value: "842", icon: Briefcase, color: "bg-emerald-50 text-emerald-600" },
-    { label: "Pending Onboarding", value: "15", icon: Clock, color: "bg-orange-50 text-orange-600" },
-    { label: "Compliance Risk", value: "4", icon: AlertTriangle, color: "bg-red-50 text-red-600" },
+    { label: "Total Clients", value: "1,248", icon: Users, color: "text-[#2563EB]", bgColor: "bg-[#2563EB]/10" },
+    { label: "Active Mandates", value: "842", icon: Briefcase, color: "text-emerald-600", bgColor: "bg-emerald-100" },
+    { label: "Pending Onboarding", value: "15", icon: Clock, color: "text-orange-600", bgColor: "bg-orange-100" },
+    { label: "Compliance Risk", value: "4", icon: AlertTriangle, color: "text-red-600", bgColor: "bg-red-100" },
   ];
 
   return (

@@ -9,6 +9,8 @@ interface MentorCardProps {
   onBook: (mentor: Mentor) => void;
 }
 
+
+
 export default function MentorCard({ mentor, onBook }: MentorCardProps) {
   return (
     <div className="group relative bg-white rounded-[1rem] border border-slate-200 overflow-hidden hover:border-[#2663eb]/30 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500">

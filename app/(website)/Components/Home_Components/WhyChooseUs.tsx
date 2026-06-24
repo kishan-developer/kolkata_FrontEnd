@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
       >
         <motion.div className="text-center mb-14" variants={itemVariants}>
           <p className="text-sm tracking-widest uppercase text-blue-600 font-semibold">Why Us</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">Why Choose Vyarseva</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">Why Choose VyaparSewa</h2>
           <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
             A trusted CA partner delivering reliable, transparent, and comprehensive compliance support
             to businesses, startups, and professionals across India.

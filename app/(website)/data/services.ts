@@ -31,36 +31,24 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         description: "A proprietorship is a single-owner business offering simplicity, direct control, and minimal compliance.", 
         slug: "proprietorship" 
       },
-      { 
-        name: "Partnership", 
-        description: "A partnership allows two or more individuals to share ownership, resources, and responsibilities.",
-        slug: "partnership" 
-      },
+      
       { 
         name: "Virtual CFO Service", 
         description: "A virtual CFO provides strategic financial guidance without the cost of a full-time executive.",
         slug: "virtual-cfo-service" 
       },
       { 
-        name: "Private Limited Company", 
-        description: "A private limited company offers limited liability and is ideal for growing businesses.",
+        name: "Private/Public Limited Company", 
+        description: "A private/public limited company offers limited liability and is ideal for growing businesses.",
         slug: "private-limited-company" 
       },
-      { 
-        name: "One Person Company (OPC)", 
-        description: "An OPC is a single-owner company that combines the benefits of a sole proprietorship and a private limited company.",
-        slug: "opc-registration" 
-      },
+      
       { 
         name: "LLP", 
         description: "A Limited Liability Partnership (LLP) combines the benefits of a partnership and a company.",
         slug: "llp-registration" 
       },
-      { 
-        name: "Section 8 Company", 
-        description: "A Section 8 company is a non-profit organization registered under the Companies Act, 2013.",
-        slug: "section-8-company" 
-      },
+      
       { 
         name: "Trust", 
         description: "A trust is a legal arrangement where a trustee holds and manages property for the benefit of beneficiaries.",
@@ -71,11 +59,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         description: "A society is a registered association of people formed for a common purpose.",
         slug: "society" 
       },
-      // { 
-      //   name: "MSME", 
-      //   description: "MSME stands for Micro, Small, and Medium Enterprises, which are registered under the MSMED Act, 2006.",
-      //   slug: "msme" 
-      // }
+     
     ]
   },
   {
@@ -176,11 +160,6 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "TDS/TCS Return Filing", 
         description: "TDS/TCS Return Filing is a government initiative to promote entrepreneurship and innovation.",
         slug: "tds-tcs-filing" 
-      },
-      { 
-        name: "TDS on Property Purchase",
-        description: "TDS on Property Purchase is a government initiative to promote entrepreneurship and innovation.",
-        slug: "tds-property" 
       },
       { 
         name: "Lower Deduction Certificate", 
@@ -289,42 +268,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "GST Appeal", 
         description: "GST Appeal is a government initiative to promote entrepreneurship and innovation.",
         slug: "gst-appeal" 
+      },
+      { 
+        name: "GST Refund", 
+        description: "GST Refund is a government initiative to promote entrepreneurship and innovation.",
+        slug: "gst-refund" 
       }
     ]
   },
-  {
-    id: "auditing",
-    title: "Auditing",
-    icon: ShieldCheck,
-    description: "Institutional-grade financial integrity verification.",
-    items: [
-      {
-        name: "Income Tax Audit", 
-        description: "Income Tax Audit is a government initiative to promote entrepreneurship and innovation.",
-        slug: "income-tax-audit" 
-      },
-      {
-        name: "Company Audit", 
-        description: "Company Audit is a government initiative to promote entrepreneurship and innovation.",
-        slug: "company-audit" 
-      },
-      {
-        name: "LLP Audit", 
-        description: "LLP Audit is a government initiative to promote entrepreneurship and innovation.",
-        slug: "llp-audit" 
-      },
-      {
-        name: "Internal Audit", 
-        description: "Internal Audit is a government initiative to promote entrepreneurship and innovation.",
-        slug: "internal-audit" 
-      },
-      {
-        name: "Other Audit", 
-        description: "Other Audit is a government initiative to promote entrepreneurship and innovation.",
-        slug: "other-audit" 
-      }
-    ]
-  },
+  
   {
     id: "mca-services",
     title: "MCA Services",
@@ -497,39 +449,6 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
         name: "Trademark", 
         description: "Trademark is a government initiative to promote entrepreneurship and innovation.",
         slug: "trademark-advisory" 
-      }
-    ]
-  },
-  {
-    id: "partnership",
-    title: "Partnership Firm",
-    icon: Users,
-    description: "Launch your enterprise with a mutually agreed Partnership Deed.",
-    items: [
-      { 
-        name: "Partnership Deed Drafting",
-        description: "Draft a legally binding partnership agreement tailored to your business needs.",
-        slug: "partnership-deed-drafting" 
-      },
-      { 
-        name: "PAN Registration",
-        description: "Obtain a Permanent Account Number (PAN) for your partnership firm.",
-        slug: "partnership-pan-registration" 
-      },
-      { 
-        name: "GST Registration", 
-        description: "Register for Goods and Services Tax (GST) to comply with tax regulations.",
-        slug: "partnership-gst-registration" 
-      },
-      {
-        name: "MSME/Udyam", 
-        description: "Register your partnership firm as a Micro, Small, or Medium Enterprise (MSME) or Udyam.",
-        slug: "partnership-msme-udyam"
-       },
-      { 
-        name: "Bank Account", 
-        description: "Open a dedicated bank account for your partnership firm.",
-        slug: "partnership-bank-account" 
       }
     ]
   },

@@ -108,7 +108,7 @@ const ServicesContent = () => {
     router.push(`/services/request?service=${encodeURIComponent(service)}`);
   };
 
-  // Update active category on scroll
+  // Update active category on scroll and handle initial hash navigation
   useEffect(() => {
     const handleScroll = () => {
       const sections = SERVICE_CATEGORIES.map(cat => document.getElementById(cat.id));
@@ -123,8 +123,27 @@ const ServicesContent = () => {
       }
     };
 
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const categoryExists = SERVICE_CATEGORIES.some(cat => cat.id === hash);
+        if (categoryExists) {
+          setActiveCategory(hash);
+          setTimeout(() => scrollToCategory(hash), 100);
+        }
+      }
+    };
+
+    // Handle initial hash on page load
+    handleHashChange();
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashChange);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
 
@@ -275,7 +294,7 @@ const ServicesContent = () => {
 
                   <div className="space-y-6 text-center lg:text-left">
                     <span className="text-[10px] font-bold text-[#2663eb] uppercase tracking-[0.5em]">{cat.id.replace("-", " ")}</span>
-                    <h2 className="text-4xl md:text-6xl font-bold text-[#0F172A] tracking-tight">{cat.title}.</h2>
+                    <h2 className="text-4xl md:text-6xl font-bold text-[#0F172A] tracking-tight">{cat.title}</h2>
                     <p className="text-2xl text-slate-500 font-medium leading-relaxed max-w-2xl">{cat.description}</p>
                   </div>
 
@@ -290,7 +309,7 @@ const ServicesContent = () => {
                           <div className="w-16 h-16 bg-[#2663eb]/10 rounded-lg flex items-center justify-center text-[#2663eb] group-hover:bg-[#2663eb] group-hover:text-white transition-all">
                             <CheckCircle2 size={32} />
                           </div>
-                          <span className="text-xl font-bold text-slate-700 group-hover:text-slate-900 transition-colors leading-tight">{item.name}</span>
+                          <span className="text-xl text-center font-bold text-slate-700 group-hover:text-slate-900 transition-colors leading-tight">{item.name}</span>
                           <p className='text-center text-slate-500'>{item.description}</p>
                         </div>
                         <div className="view_details flex items-center gap-2">

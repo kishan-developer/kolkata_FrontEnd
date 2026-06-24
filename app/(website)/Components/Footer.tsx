@@ -60,11 +60,11 @@ const Footer: React.FC = () => (
 
             <li className="flex items-center gap-3">
               <Phone size={18} className="text-[#2663eb] shrink-0" />
-              <span>+91 95608 91932</span>
+              <span>+91 98765 43210</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-[#2663eb] shrink-0" />
-              <span>support@vyaparseva.com</span>
+              <span>info@vyaparsewa.com</span>
             </li>
 
             <div className="flex space-x-3">
@@ -81,9 +81,9 @@ const Footer: React.FC = () => (
       <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-widest text-slate-400 gap-4">
         <a href="https://mediafleetblue.com" target="_blank" rel="noopener noreferrer">Made with ❤️ by Media FleetBlue</a>
         <div className="flex items-center space-x-6">
-          <Link href="#" className="hover:text-slate-900 transition-colors">Privacy</Link>
-          <Link href="#" className="hover:text-slate-900 transition-colors">Terms</Link>
-          <Link href="#" className="hover:text-slate-900 transition-colors">Disclaimer</Link>
+          <Link href="/privacy-policy" className="hover:text-slate-900 transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-slate-900 transition-colors">Terms</Link>
+          <Link href="/disclaimer" className="hover:text-slate-900 transition-colors">Disclaimer</Link>
         </div>
       </div>
     </div>

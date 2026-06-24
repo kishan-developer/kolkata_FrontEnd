@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Star, Clock, Briefcase, ChevronRight } from 'lucide-react';
 import { Mentor } from '../../consultation/data/mentors';
@@ -22,10 +23,12 @@ const MentorCard = ({ mentor, onBook }: MentorCardProps) => {
       <div className="flex items-start gap-5 mb-6">
         <div className="relative">
           <div className="w-20 h-20 rounded-[1rem] bg-slate-100 overflow-hidden ring-4 ring-slate-50">
-            {/* Placeholder for mentor image */}
-            <div className="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center text-slate-500 font-bold text-2xl uppercase">
-              {mentor.name.charAt(0)}
-            </div>
+            <Image
+              src={mentor.image}
+              alt={mentor.name}
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="absolute -bottom-2 -right-2 bg-[#2663eb] text-white px-2 py-0.5 rounded-[1rem] text-[10px] font-bold shadow-lg">
             {mentor.experience}

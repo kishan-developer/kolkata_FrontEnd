@@ -31,6 +31,7 @@ const FloatingActions = () => {
       behavior: 'smooth',
     });
   };
+  
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();

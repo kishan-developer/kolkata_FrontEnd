@@ -7,7 +7,7 @@ import Testimonials from './Components/Home_Components/Testimonials';
 import FaqSection from './Components/Home_Components/FaqSection';
 import ContactSection from './Components/Home_Components/ContactSection';
 import ServiceCards from './Components/Home_Components/ServiceCards';
-import AboutVyarseva from './Components/Home_Components/AboutVyarseva';
+import AboutVyaparSewa from './Components/Home_Components/AboutVyaparSewa';
 import FeaturedServices from './Components/Home_Components/FeaturedServices';
 import IndustriesServed from './Components/Home_Components/IndustriesServed';
 import WhyChooseUs from './Components/Home_Components/WhyChooseUs';
@@ -15,6 +15,7 @@ import ProcessFlow from './Components/Home_Components/ProcessFlow';
 import ITRPricing from './Components/Home_Components/ITRPricing';
 import ITRFiling from './Components/Home_Components/ITRFiling';
 import GSTFiling from './Components/Home_Components/GSTFiling';
+import Home_Page_Banner from './Components/Home_Page_Banner';
 
 
 export default function Page() {
@@ -25,9 +26,12 @@ export default function Page() {
       `}</style>
 
       <main>
-        <RefundSection />
 
-        <AboutVyarseva />
+        <Home_Page_Banner />
+
+        {/* <RefundSection /> */}
+
+        <AboutVyaparSewa />
 
         <ServiceCards />
 

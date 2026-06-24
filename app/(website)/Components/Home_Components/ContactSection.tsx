@@ -7,31 +7,80 @@ import { toast } from "react-hot-toast";
 
 const ContactSection: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        setIsSubmitting(false);
-        toast.success("Consultation request deployed successfully!", {
-            duration: 4000,
-            style: {
-                borderRadius: '1rem',
-                background: '#0F172A',
-                color: '#fff',
-                fontSize: '12px',
-                fontWeight: 'bold',
-                padding: '16px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.1em'
+
+        try {
+            const response = await fetch('http://localhost:2001/api/v1/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                toast.success("Consultation request submitted successfully!", {
+                    duration: 4000,
+                    style: {
+                        borderRadius: '1rem',
+                        background: '#0F172A',
+                        color: '#fff',
+                        fontSize: '12px',
+                        fontWeight: 'bold',
+                        padding: '16px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em'
+                    }
+                });
+                setFormData({ name: '', email: '', phone: '', message: '' });
+                (e.target as HTMLFormElement).reset();
+            } else {
+                toast.error('Failed to submit request. Please try again.', {
+                    duration: 4000,
+                    style: {
+                        borderRadius: '1rem',
+                        background: '#ef4444',
+                        color: '#fff',
+                        fontSize: '12px',
+                        fontWeight: 'bold',
+                        padding: '16px',
+                    }
+                });
             }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            toast.error('An error occurred. Please try again.', {
+                duration: 4000,
+                style: {
+                    borderRadius: '1rem',
+                    background: '#ef4444',
+                    color: '#fff',
+                    fontSize: '12px',
+                    fontWeight: 'bold',
+                    padding: '16px',
+                }
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
         });
-        
-        // Reset form would happen here
-        (e.target as HTMLFormElement).reset();
     };
 
     return (
@@ -68,6 +117,9 @@ const ContactSection: React.FC = () => {
                                 <input
                                     required
                                     type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     placeholder="e.g. Rahul Sharma"
                                     className="w-full bg-slate-50 border-none px-6 py-4 rounded-2xl focus:ring-2 focus:ring-[#2663eb]/20 outline-none font-bold text-slate-700 transition-all"
                                 />
@@ -77,6 +129,9 @@ const ContactSection: React.FC = () => {
                                 <input
                                     required
                                     type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     placeholder="name@company.com"
                                     className="w-full bg-slate-50 border-none px-6 py-4 rounded-2xl focus:ring-2 focus:ring-[#2663eb]/20 outline-none font-bold text-slate-700 transition-all"
                                 />
@@ -84,11 +139,13 @@ const ContactSection: React.FC = () => {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Subject</label>
+                            <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Phone Number (Optional)</label>
                             <input
-                                required
-                                type="text"
-                                placeholder="How can we assist you?"
+                                type="tel"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                placeholder="+91 98765 43210"
                                 className="w-full bg-slate-50 border-none px-6 py-4 rounded-2xl focus:ring-2 focus:ring-[#2663eb]/20 outline-none font-bold text-slate-700 transition-all"
                             />
                         </div>
@@ -97,6 +154,9 @@ const ContactSection: React.FC = () => {
                             <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4">Detailed Message</label>
                             <textarea
                                 required
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
                                 placeholder="Describe your compliance or tax requirement..."
                                 rows={5}
                                 className="w-full bg-slate-50 border-none px-6 py-4 rounded-2xl focus:ring-2 focus:ring-[#2663eb]/20 outline-none font-bold text-slate-700 transition-all resize-none"
@@ -149,7 +209,7 @@ const ContactSection: React.FC = () => {
                             <div className="space-y-2 pt-2">
                                 <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Direct Hotline</h4>
                                 <p className="text-md md:text-xl  font-black text-[#0F172A] leading-tight hover:text-[#2663eb] cursor-pointer transition-colors">
-                                   +91 95608 91932
+                                   +91 98765 43210
                                 </p>
                                 <div className="flex items-center gap-2 text-emerald-500">
                                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -166,7 +226,7 @@ const ContactSection: React.FC = () => {
                             <div className="space-y-2 pt-2">
                                 <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Client Relations</h4>
                                 <p className=" text-md md:text-xl font-black text-[#0F172A] leading-tight hover:text-[#2663eb] cursor-pointer transition-colors">
-                                    support@vyaparseva.com
+                                    info@vyaparsewa.com
                                 </p>
                             </div>
                         </div>

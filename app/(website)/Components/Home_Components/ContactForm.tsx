@@ -6,11 +6,48 @@ import React, { useState } from 'react'
 export default function ContactForm() {
     type FormStatus = 'idle' | 'submitting' | 'success';
     const [formState, setFormState] = useState<FormStatus>('idle');
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
         setFormState('submitting');
-        setTimeout(() => setFormState('success'), 1000);
+
+        try {
+            const response = await fetch('http://localhost:2001/api/v1/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setFormState('success');
+                setFormData({ name: '', email: '', phone: '', message: '' });
+            } else {
+                console.error('Submission failed:', data);
+                setFormState('idle');
+                alert('Failed to submit form. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setFormState('idle');
+            alert('An error occurred. Please try again.');
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
     };
 
     return (
@@ -38,16 +75,51 @@ export default function ContactForm() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Full Name</label>
-                                <input type="text" required className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-[1rem] focus:bg-white focus:border-[#2663eb] outline-none transition-all font-medium text-slate-900" placeholder="Your Name" />
+                                <input 
+                                    type="text" 
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required 
+                                    className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-[1rem] focus:bg-white focus:border-[#2663eb] outline-none transition-all font-medium text-slate-900" 
+                                    placeholder="Your Name" 
+                                />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Email</label>
-                                <input type="email" required className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-[1rem] focus:bg-white focus:border-[#2663eb] outline-none transition-all font-medium text-slate-900" placeholder="email@address.com" />
+                                <input 
+                                    type="email" 
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required 
+                                    className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-[1rem] focus:bg-white focus:border-[#2663eb] outline-none transition-all font-medium text-slate-900" 
+                                    placeholder="email@address.com" 
+                                />
                             </div>
                         </div>
                         <div className="space-y-2">
+                            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Phone (Optional)</label>
+                            <input 
+                                type="tel" 
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-[1rem] focus:bg-white focus:border-[#2663eb] outline-none transition-all font-medium text-slate-900" 
+                                placeholder="Your Phone Number" 
+                            />
+                        </div>
+                        <div className="space-y-2">
                             <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Message</label>
-                            <textarea required rows={4} className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-[1rem] focus:bg-white focus:border-[#2663eb] outline-none transition-all font-medium text-slate-900 resize-none" placeholder="How can we help?"></textarea>
+                            <textarea 
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                required 
+                                rows={4} 
+                                className="w-full px-5 py-4 bg-slate-50 border border-slate-100 rounded-[1rem] focus:bg-white focus:border-[#2663eb] outline-none transition-all font-medium text-slate-900 resize-none" 
+                                placeholder="How can we help?"
+                            ></textarea>
                         </div>
                         <button type="submit" disabled={formState === 'submitting'} className="w-full bg-slate-900 text-white py-4 rounded-[1rem] font-bold hover:bg-[#2663eb] transition-all disabled:opacity-50 flex items-center justify-center gap-2">
                             {formState === 'submitting' ? 'Sending...' : <>Submit Request <Send size={18} /></>}

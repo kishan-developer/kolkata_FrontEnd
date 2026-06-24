@@ -88,9 +88,9 @@ export default function BlogPage() {
                                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-1000 grayscale-[0.5] group-hover:grayscale-0"
                                  />
                                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                                 <div className="absolute top-8 left-8 px-5 py-2.5 bg-white/90 backdrop-blur-xl rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-[#0F172A] z-20 shadow-xl">
+                                 {/* <div className="absolute top-8 left-8 px-5 py-2.5 bg-white/90 backdrop-blur-xl rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-[#0F172A] z-20 shadow-xl">
                                     {post.category}
-                                 </div>
+                                 </div> */}
                               </div>
 
                               <div className="space-y-6 px-4 flex-grow flex flex-col">

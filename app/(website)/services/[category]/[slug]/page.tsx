@@ -63,12 +63,12 @@ const ALL_SERVICES_DATA: Record<string, any> = {
     category: "Business Advisory",
     heroTitle: "Expert Financial Leadership Without Full-Time Cost",
     description: "Get strategic financial oversight, budgeting, cash flow management, and compliance support from experienced CFOs on a flexible retainer model.",
-    image: "/services_images/company.png",
+    image: "/services_images/vertualcfo.jpeg",
     stats: [
       { value: "STRATEGIC", label: "Financial Planning" },
       { value: "COST", label: "Effective" }
     ],
-    definition: "Virtual CFO Service provides high-level financial expertise and strategic guidance to businesses without the expense of hiring a full-time Chief Financial Officer.",
+    definition: "A Virtual CFO is an external financial expert who provides high-level financial management and strategic advisory services to businesses on a part-time, contractual, or as-needed basis. This service is particularly beneficial for companies that require expert financial guidance without the expense of a full-time CFO. A Virtual CFO helps businesses make informed decisions, improve financial health, and achieve their growth objectives.",
     definitionLong: "Our virtual CFOs become an integral part of your leadership team, providing financial analysis, forecasting, compliance oversight, and strategic decision support tailored to your business needs.",
     definitionQuote: "Ideal for growing businesses, startups, and SMEs seeking expert financial guidance on demand.",
     benefitsRich: [
@@ -240,16 +240,16 @@ const ALL_SERVICES_DATA: Record<string, any> = {
     ]
   },
   "private-limited-company": {
-    title: "Private Limited Company",
+    title: "Private/Public Limited Company",
     category: "Corporate Formation",
-    heroTitle: "Start Your Private Limited Company in India",
+    heroTitle: "Start Your Private/Public Limited Company in India",
     description: "Fast and reliable company registration with DIN, DSC, MOA, AOA, PAN, TAN, GST, and compliance support.",
-    image: "/services_images/company.png",
+    image: "/Update_service_Imgages/P:P.png",
     stats: [
       { value: "5000+", label: "Companies Registered" },
       { value: "EXPERT", label: "MCA Compliance" }
     ],
-    definition: "A Private Limited Company is a legally recognized corporate structure under the Companies Act, 2013. It provides limited liability protection, separate legal identity, and strong credibility, making it the most popular structure for startups and growing businesses.",
+    definition: "A Private/Public Limited Company is a legally recognized corporate structure under the Companies Act, 2013. It provides limited liability protection, separate legal identity, and strong credibility, making it the most popular structure for startups and growing businesses.",
     definitionLong: "The company continues to exist even if ownership changes, ensuring stability and long-term scalability.",
     definitionQuote: "Best suited for startups, SMEs, agencies, and businesses looking to raise investment or build long-term brand credibility.",
     benefitsRich: [
@@ -261,7 +261,7 @@ const ALL_SERVICES_DATA: Record<string, any> = {
       { title: "Perpetual Existence", desc: "Company continues regardless of ownership changes." }
     ],
     benefits: ["Limited Liability", "Funding Ready", "High Credibility", "Perpetual Existence"],
-    audienceDesc: "A Private Limited Company is ideal for businesses focused on growth, funding, and corporate structure.",
+    audienceDesc: "A Private/Public Limited Company is ideal for businesses focused on growth, funding, and corporate structure.",
     targetAudience: ["Startups", "IT Companies", "E-Commerce Brands", "Marketing Agencies", "Manufacturing Units", "Traders & Exporters", "Service Businesses", "Consulting Firms", "Family Businesses"],
     included: [
       "Business Consultation", "DSC (Digital Signatures)", "DIN (Director Identification Numbers)",
@@ -469,60 +469,60 @@ const ALL_SERVICES_DATA: Record<string, any> = {
       { q: "Does Society need annual filings?", a: "Yes, annual return submission to the Registrar is mandatory." }
     ]
   },
-  "msme": {
-    title: "MSME Registration",
-    category: "Business Identification",
-    heroTitle: "Get Your MSME (Udyam) Registration Instantly",
-    description: "Register your business as Micro, Small, or Medium Enterprise to access subsidies, bank loan benefits, government tenders, and tax rebates.",
-    image: "/services_images/msme.png",
-    stats: [
-      { value: "INSTANT", label: "Registration" },
-      { value: "GOVT", label: "Recognized" }
-    ],
-    definition: "MSME (Micro, Small, Medium Enterprises) are businesses recognized by the Government of India under the Udyam Registration system. It provides business identity, government benefits, and financial support.",
-    definitionLong: "MSME classification is based on Investment in Plant & Machinery/Equipment and Annual Turnover.",
-    definitionQuote: "Best for manufacturers, service providers, traders, startups, and small businesses seeking government benefits.",
-    benefitsRich: [
-      { title: "Tender Preference", desc: "Udyam-registered businesses get priority in e-tenders." },
-      { title: "Easy Loan Approvals", desc: "Access to collateral-free loans under CGTMSE." },
-      { title: "Lower Interest Rates", desc: "Special interest rate subsidies for MSMEs." },
-      { title: "Payment Protection", desc: "Buyers must pay within 45 days of delivery." },
-      { title: "Certification Support", desc: "Financial support for ISO certification reimbursement." },
-      { title: "Bill Concession", desc: "Discounts in industrial electricity charges." }
-    ],
-    benefits: ["Tender Priority", "Loan Benefits", "Payment Protection", "Subsidies"],
-    audienceDesc: "Udyam Registration is ideal for manufacturers, traders, and service providers seeking growth.",
-    targetAudience: ["Small Businesses", "Manufacturers", "Traders", "Startups", "E-commerce Sellers", "Freelancers", "Home Businesses", "Retail Units"],
-    included: [
-      "Business Assessment", "Document Verification", "Udyam Application Filing",
-      "Certificate Issuance", "PAN & GST Update", "Trademark Guidance (Optional)",
-      "Startup India Support (Optional)"
-    ],
-    process: [
-      { t: "Details Submission", d: "Provide Aadhaar & business details." },
-      { t: "Validation", d: "Validate PAN & GST (if available)." },
-      { t: "Application", d: "Fill online Udyam application." },
-      { t: "Verification", d: "Submit and verify with OTP." },
-      { t: "Issuance", d: "Receive MSME/Udyam Certificate instantly." },
-      { t: "Download", d: "Download PDF certificate for records." }
-    ],
-    docs: [
-      "Aadhaar of Owner", "Business Name", "Activities Description", "Bank Account Details",
-      "Office Address", "Mobile & Email", "Business PAN (if available)", "GSTIN (if available)"
-    ],
-    pricingTimeline: [
-      { label: "Filing", value: "Same Day", desc: "Immediate processing." },
-      { label: "Issuance", value: "Instant", desc: "5-10 minutes." },
-      { label: "Updates", value: "1 Day", desc: "Portal modifications." }
-    ],
-    faqs: [
-      { q: "Is MSME registration mandatory?", a: "Not mandatory but highly beneficial for loans, subsidies, and tenders." },
-      { q: "Is MSME applicable for traders?", a: "Yes, both wholesale and retail traders are eligible." },
-      { q: "How long is the MSME certificate valid?", a: "Lifetime validity. No renewal required." },
-      { q: "Can I update business details later?", a: "Yes, the Udyam portal allows unlimited updates." },
-      { q: "Can a business without GST get MSME?", a: "Yes, GST is optional unless your business is required to register." }
-    ]
-  },
+  // "msme": {
+  //   title: "MSME Registration",
+  //   category: "Business Identification",
+  //   heroTitle: "Get Your MSME (Udyam) Registration Instantly",
+  //   description: "Register your business as Micro, Small, or Medium Enterprise to access subsidies, bank loan benefits, government tenders, and tax rebates.",
+  //   image: "/services_images/msme.png",
+  //   stats: [
+  //     { value: "INSTANT", label: "Registration" },
+  //     { value: "GOVT", label: "Recognized" }
+  //   ],
+  //   definition: "MSME (Micro, Small, Medium Enterprises) are businesses recognized by the Government of India under the Udyam Registration system. It provides business identity, government benefits, and financial support.",
+  //   definitionLong: "MSME classification is based on Investment in Plant & Machinery/Equipment and Annual Turnover.",
+  //   definitionQuote: "Best for manufacturers, service providers, traders, startups, and small businesses seeking government benefits.",
+  //   benefitsRich: [
+  //     { title: "Tender Preference", desc: "Udyam-registered businesses get priority in e-tenders." },
+  //     { title: "Easy Loan Approvals", desc: "Access to collateral-free loans under CGTMSE." },
+  //     { title: "Lower Interest Rates", desc: "Special interest rate subsidies for MSMEs." },
+  //     { title: "Payment Protection", desc: "Buyers must pay within 45 days of delivery." },
+  //     { title: "Certification Support", desc: "Financial support for ISO certification reimbursement." },
+  //     { title: "Bill Concession", desc: "Discounts in industrial electricity charges." }
+  //   ],
+  //   benefits: ["Tender Priority", "Loan Benefits", "Payment Protection", "Subsidies"],
+  //   audienceDesc: "Udyam Registration is ideal for manufacturers, traders, and service providers seeking growth.",
+  //   targetAudience: ["Small Businesses", "Manufacturers", "Traders", "Startups", "E-commerce Sellers", "Freelancers", "Home Businesses", "Retail Units"],
+  //   included: [
+  //     "Business Assessment", "Document Verification", "Udyam Application Filing",
+  //     "Certificate Issuance", "PAN & GST Update", "Trademark Guidance (Optional)",
+  //     "Startup India Support (Optional)"
+  //   ],
+  //   process: [
+  //     { t: "Details Submission", d: "Provide Aadhaar & business details." },
+  //     { t: "Validation", d: "Validate PAN & GST (if available)." },
+  //     { t: "Application", d: "Fill online Udyam application." },
+  //     { t: "Verification", d: "Submit and verify with OTP." },
+  //     { t: "Issuance", d: "Receive MSME/Udyam Certificate instantly." },
+  //     { t: "Download", d: "Download PDF certificate for records." }
+  //   ],
+  //   docs: [
+  //     "Aadhaar of Owner", "Business Name", "Activities Description", "Bank Account Details",
+  //     "Office Address", "Mobile & Email", "Business PAN (if available)", "GSTIN (if available)"
+  //   ],
+  //   pricingTimeline: [
+  //     { label: "Filing", value: "Same Day", desc: "Immediate processing." },
+  //     { label: "Issuance", value: "Instant", desc: "5-10 minutes." },
+  //     { label: "Updates", value: "1 Day", desc: "Portal modifications." }
+  //   ],
+  //   faqs: [
+  //     { q: "Is MSME registration mandatory?", a: "Not mandatory but highly beneficial for loans, subsidies, and tenders." },
+  //     { q: "Is MSME applicable for traders?", a: "Yes, both wholesale and retail traders are eligible." },
+  //     { q: "How long is the MSME certificate valid?", a: "Lifetime validity. No renewal required." },
+  //     { q: "Can I update business details later?", a: "Yes, the Udyam portal allows unlimited updates." },
+  //     { q: "Can a business without GST get MSME?", a: "Yes, GST is optional unless your business is required to register." }
+  //   ]
+  // },
 
   "lei": {
     title: "Legal Entity Identifier (LEI)",
@@ -2278,6 +2278,48 @@ const ALL_SERVICES_DATA: Record<string, any> = {
     faqs: [
       { q: "What is the time limit for GST appeal?", a: "Within 3 months from the date of communication of order, extendable by 1 month for sufficient cause." },
       { q: "Can I get a stay of demand during appeal?", a: "Yes, a stay can be sought from the Appellate Authority or Tribunal pending disposal of appeal." }
+    ]
+  },
+  "gst-refund": {
+    title: "GST Refund",
+    category: "Indirect Tax",
+    heroTitle: "Claim Your GST Refund Hassle-Free",
+    description: "Expert assistance for filing and tracking GST refund applications for exports, excess payments, and inverted duty structures.",
+    image: "/Update_service_Imgages/GST_Refunt.png",
+    stats: [
+      { value: "FAST", label: "Processing" },
+      { value: "SUCCESS", label: "Rate" }
+    ],
+    definition: "GST Refund allows taxpayers to claim back excess tax paid or accumulated input tax credit that cannot be utilized due to zero-rated supplies or inverted duty structure.",
+    definitionLong: "Businesses can claim GST refund for exports, payment of tax in case of inverted duty structure, or excess payment of tax through proper application and documentation.",
+    definitionQuote: "Get back what's rightfully yours.",
+    benefitsRich: [
+      { title: "Cash Flow Boost", desc: "Improve working capital by getting refund of blocked ITC." },
+      { title: "Export Incentive", desc: "Claim refund for zero-rated exports without payment of tax." },
+      { title: "Inverted Duty Relief", desc: "Get refund when tax on inputs is higher than outputs." },
+      { title: "Expert Handling", desc: "Professional support for complex refund applications." }
+    ],
+    benefits: ["Cash Flow", "Export Benefits", "Inverted Duty Relief", "Expert Support"],
+    audienceDesc: "GST refund is applicable for exporters, businesses with inverted duty structure, and those who have paid excess tax.",
+    targetAudience: ["Exporters", "Manufacturers", "Traders", "Service Providers", "E-commerce Sellers", "SEZ Units"],
+    included: [
+      "Eligibility Check", "Document Preparation", "Application Filing",
+      "Query Response", "Tracking", "Credit to Bank Account"
+    ],
+    process: [
+      { t: "Assessment", d: "Evaluate refund eligibility and calculate amount." },
+      { t: "Documentation", d: "Prepare GSTR-1, GSTR-3B, and supporting documents." },
+      { t: "Filing", d: "Submit RFD-01 application on GST portal." },
+      { t: "Follow-up", d: "Track status and respond to department queries." }
+    ],
+    docs: ["GSTR-1 & GSTR-3B", "Invoice Copies", "Bank Details", "Export Documents", "ITR", "Financial Statements"],
+    pricingTimeline: [
+      { label: "Application", value: "3-5 Days", desc: "Preparation and filing." },
+      { label: "Processing", value: "30-90 Days", desc: "Government timeline." }
+    ],
+    faqs: [
+      { q: "What is the time limit for GST refund?", a: "Generally, refund applications should be filed within 2 years from the relevant date. For exports, it's typically before filing the annual return." },
+      { q: "Can I claim refund of unutilized ITC?", a: "Yes, unutilized ITC can be claimed as refund in case of exports, inverted duty structure, or accumulated ITC due to non-supply of goods/services." }
     ]
   },
 

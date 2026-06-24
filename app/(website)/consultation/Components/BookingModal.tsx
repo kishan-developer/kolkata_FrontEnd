@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, Clock, CheckCircle2, ChevronRight, MapPin } from 'lucide-react';
+import { X, Calendar, Clock, CheckCircle2, ChevronRight, MapPin, User, Mail, Phone } from 'lucide-react';
 import { Mentor } from '../../consultation/data/mentors';
+import { toast } from 'react-hot-toast';
 
 interface BookingModalProps {
   mentor: Mentor | null;
@@ -15,15 +16,53 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
 
   if (!mentor) return null;
 
   const dates = mentor.bookedSlots ? Object.keys(mentor.bookedSlots) : ["Mon 24 Apr", "Tue 25 Apr", "Wed 26 Apr"];
   const timeSlots = mentor.availability;
 
-  const handleBook = () => {
-    setStep(3);
-    // In a real app, this would call an API
+  const handleBook = async () => {
+    if (!selectedDate || !selectedTime) return;
+    
+    setLoading(true);
+    try {
+      const response = await fetch('http://localhost:2001/api/v1/consultation/public-book', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: mentor.title,
+          preferredDate: selectedDate,
+          preferredTime: selectedTime,
+          message: `Consultation with ${mentor.name}`,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success('Consultation booked successfully!');
+        setStep(3);
+      } else {
+        toast.error(data.message || 'Failed to book consultation');
+      }
+    } catch (error) {
+      console.error('Error booking consultation:', error);
+      toast.error('Failed to book consultation. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
@@ -32,6 +71,7 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
       setStep(1);
       setSelectedDate(null);
       setSelectedTime(null);
+      setFormData({ name: '', email: '', phone: '' });
     }, 300);
   };
 
@@ -157,10 +197,86 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
                     </button>
                     <button
                       disabled={!selectedTime}
-                      onClick={handleBook}
+                      onClick={() => setStep(2.5)}
                       className="flex-[2] py-4 bg-[#2663eb] text-white rounded-[1rem] font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#2663eb]/20"
                     >
-                      Confirm Booking
+                      Next: Your Details
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+              {step === 2.5 && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                >
+                  <div className="flex items-center gap-2 mb-6 text-[#2663eb]">
+                    <User className="w-5 h-5" />
+                    <h4 className="font-bold">Your Details</h4>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => setFormData({...formData, name: e.target.value})}
+                          placeholder="Enter your full name"
+                          className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-[1rem] focus:border-[#2663eb] focus:outline-none transition-colors"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">Email Address</label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({...formData, email: e.target.value})}
+                          placeholder="Enter your email"
+                          className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-[1rem] focus:border-[#2663eb] focus:outline-none transition-colors"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                        <input
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                          placeholder="Enter your phone number"
+                          className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-[1rem] focus:border-[#2663eb] focus:outline-none transition-colors"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <button
+                      onClick={() => setStep(2)}
+                      className="flex-1 py-4 bg-slate-100 text-slate-600 rounded-[1rem] font-bold"
+                    >
+                      Back
+                    </button>
+                    <button
+                      disabled={!formData.name || !formData.email || !formData.phone}
+                      onClick={handleBook}
+                      className="flex-[2] py-4 bg-[#2663eb] text-white rounded-[1rem] font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#2663eb]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {loading ? 'Booking...' : 'Confirm Booking'}
                       <CheckCircle2 className="w-5 h-5" />
                     </button>
                   </div>

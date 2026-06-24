@@ -30,7 +30,7 @@ const pricingPlans = [
       "Crypto tax reporting"
     ],
     hook: "Trading in Stocks or Crypto? Let experts handle your complex capital gains.",
-    price: "₹2,499/-",
+    price: "₹1,999/-",
     popular: true
   },
   {
@@ -44,7 +44,7 @@ const pricingPlans = [
       "Foreign asset reporting"
     ],
     hook: "Stay compliant in India, while you grow abroad. Specialized NRI desk.",
-    price: "₹4,999/-",
+    price: "₹3,999/-",
     popular: false
   },
   {
@@ -58,7 +58,7 @@ const pricingPlans = [
       "For Doctors, CAs, Techies"
     ],
     hook: "Business growth is your focus. Tax compliance is ours.",
-    price: "₹3,499/-",
+    price: "₹1,999/-",
     popular: false
   }
 ];
@@ -242,7 +242,7 @@ export default function ITRFiling() {
                   <div className="text-3xl md:text-4xl font-black text-[#2663eb] mb-1">
                     {plan.price}
                   </div>
-                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Starting Price</p>
+                  {/* <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Starting Price</p> */}
                 </div>
 
                 {/* CTA Button */}

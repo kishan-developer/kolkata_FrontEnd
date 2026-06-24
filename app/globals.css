@@ -1,27 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 
 :root {
-  --background: #f8fafc;
-  --foreground: #626c84;
-  --primary-accent: #2663eb;
-  --sidebar-bg: #ffffff;
-  --card-bg: #ffffff;
-  --card-shadow: 0 10px 40px -10px rgba(38, 99, 235, 0.1);
-  --shadow-antigravity: 0 20px 50px -12px rgba(38, 99, 235, 0.15);
+  /* Modern 2026 Color Palette */
+  --background: #F8FAFC;
+  --card: #FFFFFF;
+  --primary: #2563EB;
+  --text: #0F172A;
+  --secondary-text: #64748B;
+  --border: #E2E8F0;
+
+  /* Legacy variables for compatibility */
+  --foreground: #64748B;
+  --primary-accent: #2563EB;
+  --sidebar-bg: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-antigravity: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-fira: var(--font-fira), sans-serif;
 }
 
 body {
   background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-fira), sans-serif;
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 

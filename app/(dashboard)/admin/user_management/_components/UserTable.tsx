@@ -139,63 +139,63 @@ function UserRow({ user, isSelected, onSelect, onView, onEdit, onAction }: {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <tr className={`group transition-all ${isSelected ? 'bg-blue-50/50' : 'hover:bg-slate-50/50'}`}>
-      <td className="px-6 py-5">
-        <input 
-          type="checkbox" 
+    <tr className={`group transition-colors ${isSelected ? 'bg-[#F8FAFC]' : 'hover:bg-[#F8FAFC]'}`}>
+      <td className="px-4 py-4">
+        <input
+          type="checkbox"
           checked={isSelected}
           onChange={onSelect}
-          className="w-4 h-4 rounded border-slate-300 text-[#2663eb] focus:ring-[#2663eb]"
+          className="w-4 h-4 rounded border-[#E2E8F0] text-[#2563EB] focus:ring-[#2563EB]"
         />
       </td>
-      <td className="px-6 py-5">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-[1rem] bg-slate-100 flex items-center justify-center text-slate-600 font-black text-lg border-2 border-white shadow-sm overflow-hidden">
+      <td className="px-4 py-4">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-[#F8FAFC] flex items-center justify-center text-[#64748B] font-semibold text-sm border-2 border-white shadow-sm overflow-hidden">
             <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.email}`} alt="" />
           </div>
           <div>
-            <p className="font-black text-slate-900 text-sm tracking-tight">{user.name}</p>
-            <p className="text-[11px] text-slate-500 font-medium tracking-tight mt-0.5">{user.email}</p>
+            <p className="font-medium text-[#0F172A] text-sm">{user.name}</p>
+            <p className="text-xs text-[#64748B] mt-0.5">{user.email}</p>
           </div>
         </div>
       </td>
-      <td className="px-6 py-5">
+      <td className="px-4 py-4">
         <div className="space-y-2">
-          <span className="inline-flex items-center px-2.5 py-1 bg-[#2663eb]/5 text-[#2663eb] text-[10px] font-black uppercase rounded-[0.5rem] border border-[#2663eb]/10">
+          <span className="inline-flex items-center px-2.5 py-1 bg-[#2563EB]/10 text-[#2563EB] text-xs font-medium rounded-lg">
             {user.role}
           </span>
           <div className="flex flex-wrap gap-1">
             {user.assignedServices.map((s, idx) => (
-              <span key={idx} className="text-[9px] font-black px-1.5 py-0.5 bg-slate-50 text-slate-400 border border-slate-100 rounded-[0.4rem] uppercase">
+              <span key={idx} className="text-xs px-2 py-0.5 bg-[#F8FAFC] text-[#64748B] border border-[#E2E8F0] rounded-lg">
                 {s}
               </span>
             ))}
           </div>
         </div>
       </td>
-      <td className="px-6 py-5">
+      <td className="px-4 py-4">
         <StatusBadge status={user.status} />
-        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-2">ID: #{user.id.toString().slice(-4)}</p>
+        <p className="text-xs text-[#64748B] mt-2">ID: #{user.id.toString().slice(-4)}</p>
       </td>
-      <td className="px-6 py-5">
-        <p className="text-xs font-black text-slate-900 tracking-tight">{user.lastLogin}</p>
-        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Joined {user.createdDate}</p>
+      <td className="px-4 py-4">
+        <p className="text-sm font-medium text-[#0F172A]">{user.lastLogin}</p>
+        <p className="text-xs text-[#64748B] mt-1">Joined {user.createdDate}</p>
       </td>
-      <td className="px-6 py-5 text-right relative pr-10">
+      <td className="px-4 py-4 text-right relative pr-4">
         <div className="flex items-center justify-end gap-2">
-          <button 
+          <button
             onClick={() => onView(user)}
-            className="p-2 text-slate-400 hover:text-[#2663eb] hover:bg-blue-50 rounded-[0.8rem] transition-all"
+            className="p-2 text-[#64748B] hover:text-[#2563EB] hover:bg-[#F8FAFC] rounded-[10px] transition-colors"
             title="View Profile"
           >
-            <Eye size={18} />
+            <Eye size={16} />
           </button>
           <div className="relative">
-            <button 
+            <button
               onClick={() => setShowMenu(!showMenu)}
-              className={`p-2 rounded-[0.8rem] transition-all ${showMenu ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-400 hover:text-slate-900 hover:bg-slate-100'}`}
+              className={`p-2 rounded-[10px] transition-colors ${showMenu ? 'bg-[#0F172A] text-white' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC]'}`}
             >
-              <MoreVertical size={18} />
+              <MoreVertical size={16} />
             </button>
             
             <AnimatePresence>
@@ -275,14 +275,14 @@ function BulkActionButton({ label, icon, onClick, color = "text-white" }: { labe
 function EmptyState({ onReset }: { onReset: () => void }) {
   return (
     <div className="flex flex-col items-center justify-center py-20">
-      <div className="w-20 h-20 bg-slate-50 rounded-[1.5rem] flex items-center justify-center mb-6 text-slate-200">
-        <Search size={40} />
+      <div className="w-16 h-16 bg-[#F8FAFC] rounded-xl flex items-center justify-center mb-6 text-[#64748B]">
+        <Search size={32} />
       </div>
-      <h3 className="text-xl font-black text-slate-900 tracking-tight">No Users Found</h3>
-      <p className="text-slate-400 font-medium text-sm mt-2 max-w-xs text-center">We couldn&apos;t find any users matching your criteria. Try adjusting your filters.</p>
+      <h3 className="text-lg font-semibold text-[#0F172A]">No Users Found</h3>
+      <p className="text-[#64748B] text-sm mt-2 max-w-xs text-center">We couldn&apos;t find any users matching your criteria. Try adjusting your filters.</p>
       <button 
         onClick={onReset}
-        className="mt-8 px-8 py-3 bg-[#2663eb] text-white font-black text-xs uppercase tracking-widest rounded-[1rem] shadow-lg shadow-blue-200 hover:scale-105 transition-all"
+        className="mt-6 px-6 py-2 bg-[#2563EB] text-white font-medium text-sm rounded-[10px] hover:bg-[#1D4ED8] transition-colors"
       >
         Clear All Filters
       </button>

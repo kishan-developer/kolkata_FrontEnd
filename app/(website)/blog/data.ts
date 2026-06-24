@@ -31,7 +31,7 @@ export const POSTS: BlogPost[] = [
     date: "April 26, 2026",
     author: "CA Mukesh Raj",
     excerpt: "A deep dive into the legal and tax implications of different business structures in India for 2026.",
-    image: "/modern_business_audit_report_1777281104179.png",
+    image: "/CA_Blog_Img/p1.jpeg",
     content: `
       <h2>The Strategic Choice of Business Entity</h2>
       <p>Launching a new venture begins with a critical decision: the legal structure. In India, founders must choose between Proprietorship, Partnership, LLP, or a Private Limited Company.</p>
@@ -48,7 +48,7 @@ export const POSTS: BlogPost[] = [
     date: "April 24, 2026",
     author: "CS Anjali Sharma",
     excerpt: "How to leverage Startup India recognition for tax holidays and intellectual property facilitation.",
-    image: "/startup_registration_dashboard_1777281126915.png",
+    image: "/CA_Blog_Img/p1.jpeg",
     content: `
       <h2>The Startup India Ecosystem</h2>
       <p>Government of India's flagship initiative provides a 3-year tax holiday and 80% rebate on patent filings.</p>
@@ -63,7 +63,7 @@ export const POSTS: BlogPost[] = [
     date: "April 22, 2026",
     author: "CA Mukesh Raj",
     excerpt: "Strategic planning for ITR filing. Learn how to optimize deductions under the new tax regime.",
-    image: "/tax_planning_strategy_map_1777281144082.png",
+    image: "/CA_Blog_Img/Income_Tax.png",
     content: `
       <h2>2026 Tax Planning Matrix</h2>
       <p>With the recent updates in direct tax slabs, systematic planning is essential to ensure you're not overpaying.</p>
@@ -78,7 +78,7 @@ export const POSTS: BlogPost[] = [
     date: "April 20, 2026",
     author: "CA Mukesh Raj",
     excerpt: "Common errors during GST registration that lead to notice issuance and how to ensure a smooth approval.",
-    image: "/gst_tax_reconciliation_ui_1777281374863.png",
+    image: "/CA_Blog_Img/GST_Services.jpeg",
     content: `
       <h2>Smooth GST Onboarding</h2>
       <p>Notice 01 is often issued due to clerical errors in the principal place of business documentation.</p>
@@ -93,12 +93,13 @@ export const POSTS: BlogPost[] = [
     date: "April 18, 2026",
     author: "CA Mukesh Raj",
     excerpt: "Why internal audits are no longer optional for growing SMEs and mid-sized firms.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80",
+    image: "/CA_Blog_Img/GST_Services.jpeg",
     content: `
       <h2>Beyond Statutory Compliance</h2>
       <p>Internal audits focus on process efficiency and risk mitigation, not just financial accuracy.</p>
     `
   },
+  
   {
     slug: "mca-compliance-calendar-2026",
     title: "MCA Compliance Calendar: Key Dates for FY 2026-27",

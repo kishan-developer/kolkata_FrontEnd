@@ -322,7 +322,7 @@ function TabButton({ active, onClick, icon, label }: { active: boolean, onClick:
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-2 px-6 py-3 rounded-[1rem] font-black text-[10px] uppercase tracking-widest transition-all ${active ? 'bg-[#2663eb] text-white shadow-lg shadow-blue-100' : 'text-slate-400 hover:text-slate-600 hover:bg-slate-50'}`}
+      className={`flex items-center gap-2 px-4 py-2 rounded-[10px] text-sm font-medium transition-all ${active ? 'bg-[#2563EB] text-white' : 'text-[#64748B] hover:bg-[#F8FAFC]'}`}
     >
       {icon} {label}
     </button>
@@ -332,12 +332,12 @@ function TabButton({ active, onClick, icon, label }: { active: boolean, onClick:
 function FilterSelect({ label, options, onChange }: { label: string, options: string[], onChange: (val: string) => void }) {
   return (
     <div className="space-y-2">
-      <label className="text-[9px] font-black text-slate-400 uppercase tracking-widest px-1">{label}</label>
+      <label className="text-xs font-medium text-[#64748B]">{label}</label>
       <select
         onChange={(e) => onChange(e.target.value)}
-        className="w-full h-11 px-3 bg-slate-50 border border-slate-200 rounded-[1rem] outline-none text-xs font-bold uppercase tracking-tight"
+        className="w-full h-10 px-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-[10px] outline-none text-sm text-[#0F172A]"
       >
-        <option value="all">All {label}s</option>
+        <option value="all">All {label}</option>
         {options.map(o => <option key={o} value={o}>{o}</option>)}
       </select>
     </div>
