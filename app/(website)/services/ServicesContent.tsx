@@ -11,6 +11,7 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SERVICE_CATEGORIES, ServiceCategory } from '../data/services';
+import QuickInquiryForm from './QuickInquiryForm';
 
 
 const FAQ_DATA = [
@@ -102,10 +103,13 @@ const ServicesContent = () => {
   const [activeCategory, setActiveCategory] = useState(SERVICE_CATEGORIES[0].id);
   const [searchQuery, setSearchQuery] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [showInquiryModal, setShowInquiryModal] = useState(false);
+  const [selectedService, setSelectedService] = useState("General Inquiry");
   const router = useRouter();
 
   const handleRequestClick = (service: string = "General Inquiry") => {
-    router.push(`/services/request?service=${encodeURIComponent(service)}`);
+    setSelectedService(service);
+    setShowInquiryModal(true);
   };
 
   // Update active category on scroll and handle initial hash navigation
@@ -432,6 +436,25 @@ const ServicesContent = () => {
           </div>
         </div>
       </section>
+
+      {/* Quick Inquiry Modal */}
+      <AnimatePresence>
+        {showInquiryModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="w-full max-w-md"
+            >
+              <QuickInquiryForm
+                serviceName={selectedService}
+                onClose={() => setShowInquiryModal(false)}
+              />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
