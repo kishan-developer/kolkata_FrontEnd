@@ -35,7 +35,7 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
     
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:2001/api/v1/consultation/public-book', {
+      const response = await fetch('http://localhost:2000/api/v1/consultation/public-book', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
