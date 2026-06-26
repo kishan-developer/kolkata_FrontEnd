@@ -1,6 +1,7 @@
 import { Fira_Sans } from "next/font/google";
 import "./globals.css";
 import { Metadata } from "next";
+import ChatWidget from "./(website)/Components/Chatbot/ChatWidget";
 
 const firaSans = Fira_Sans({
   variable: "--font-fira",
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`${firaSans.variable} font-fira antialiased`}
       >
         {children}
+        <ChatWidget />
       </body>
     </html>
   );
