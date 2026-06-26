@@ -23,10 +23,12 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
     phone: '',
   });
 
-  if (!mentor) return null;
-
-  const dates = mentor.bookedSlots ? Object.keys(mentor.bookedSlots) : ["Mon 24 Apr", "Tue 25 Apr", "Wed 26 Apr"];
-  const timeSlots = mentor.availability;
+  // Generic dates and time slots when no specific mentor
+  const dates = mentor?.bookedSlots ? Object.keys(mentor.bookedSlots) : ["Mon 24 Apr", "Tue 25 Apr", "Wed 26 Apr"];
+  const timeSlots = mentor?.availability || ["10:00 AM", "11:00 AM", "2:00 PM", "3:00 PM", "4:00 PM"];
+  const mentorTitle = mentor?.title || "Expert Consultation";
+  const mentorPrice = mentor?.price || "999";
+  const mentorName = mentor?.name || "VyaparSewa Expert";
 
   const handleBook = async () => {
     if (!selectedDate || !selectedTime) return;
@@ -42,10 +44,10 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          service: mentor.title,
+          service: mentorTitle,
           preferredDate: selectedDate,
           preferredTime: selectedTime,
-          message: `Consultation with ${mentor.name}`,
+          message: `Consultation with ${mentorName}`,
         }),
       });
 
@@ -97,11 +99,11 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
             <div className="flex items-center justify-between p-6 border-b border-slate-100">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-[1rem] bg-[#2663eb]/10 flex items-center justify-center text-[#2663eb] font-bold">
-                  {mentor.name.charAt(0)}
+                  {mentorName.charAt(0)}
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900">{mentor.name}</h3>
-                  <p className="text-xs text-slate-500">{mentor.title}</p>
+                  <h3 className="font-bold text-slate-900">{mentorName}</h3>
+                  <p className="text-xs text-slate-500">{mentorTitle}</p>
                 </div>
               </div>
               <button 
@@ -168,7 +170,7 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
                   </div>
                   <div className="grid grid-cols-3 gap-3 mb-8">
                     {timeSlots.map((time) => {
-                      const isBooked = mentor.bookedSlots?.[selectedDate!]?.includes(time);
+                      const isBooked = mentor?.bookedSlots?.[selectedDate!]?.includes(time);
                       return (
                         <button
                           key={time}
@@ -294,7 +296,7 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
                   </div>
                   <h4 className="text-2xl font-black text-slate-900 mb-2">Booking Confirmed!</h4>
                   <p className="text-slate-500 mb-8">
-                    Your session with {mentor.name} has been scheduled for {selectedDate} at {selectedTime}.
+                    Your session with {mentorName} has been scheduled for {selectedDate} at {selectedTime}.
                   </p>
                   <button
                     onClick={handleClose}
@@ -317,7 +319,7 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
                 </div>
                 <div className="text-right">
                   <span className="text-xs text-slate-400 block">Total Amount</span>
-                  <span className="text-xl font-black text-slate-900">₹{mentor.price}</span>
+                  <span className="text-xl font-black text-slate-900">₹{mentorPrice}</span>
                 </div>
               </div>
             )}

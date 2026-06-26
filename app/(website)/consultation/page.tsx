@@ -2,21 +2,16 @@
 
 import React, { useState } from 'react';
 import ConsultationHero from '../consultation/Components/ConsultationHero';
-import MentorCard from '../consultation/Components/MentorCard';
 import BookingModal from '../consultation/Components/BookingModal';
 import FAQSection from '../consultation/Components/FAQSection';
-import ExpertProfilesSection from '../consultation/Components/ExpertProfilesSection';
 import SuccessStoriesSection from '../consultation/Components/SuccessStoriesSection';
 import TestimonialsSection from './Components/TestimonialsSection';
-import { MENTORS, Mentor } from './data/mentors';
 import { motion } from 'framer-motion';
 
 export default function ConsultationPage() {
-  const [selectedMentor, setSelectedMentor] = useState<Mentor | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleBook = (mentor: Mentor) => {
-    setSelectedMentor(mentor);
+  const handleBook = () => {
     setIsModalOpen(true);
   };
 
@@ -104,10 +99,16 @@ export default function ConsultationPage() {
                   </svg>
                 </div>
 
-                <MentorCard 
-                  mentor={MENTORS[0]} 
-                  onBook={handleBook} 
-                />
+                <div className="text-center py-12">
+                  <h3 className="text-2xl font-bold text-white mb-4">Book Your Consultation</h3>
+                  <p className="text-slate-400 mb-6">Get expert guidance for your business needs</p>
+                  <button
+                    onClick={handleBook}
+                    className="px-8 py-3 bg-[#2663eb] text-white rounded-xl font-bold hover:bg-[#1d4ed8] transition-all"
+                  >
+                    Book Now
+                  </button>
+                </div>
 
                 <div className="mt-6 flex items-center justify-center gap-2 text-slate-400 text-sm">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -199,18 +200,7 @@ export default function ConsultationPage() {
       </section>
 
 
-      {/* Expert Profiles Section */}
-      <section className="py-24 bg-[#0F172A] relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#2663eb]/5 to-transparent"></div>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Expert Profiles</h2>
-            <p className="text-slate-400 font-medium text-lg">Meet our seasoned advisors with decades of combined experience</p>
-          </div>
-
-          <ExpertProfilesSection />
-        </div>
-      </section>
+      {/* Expert Profiles Section - Removed personal details */}
 
       {/* Success Stories Section */}
       <section className="py-24 bg-[#0F172A] relative">
@@ -251,7 +241,7 @@ export default function ConsultationPage() {
       </section>
 
       <BookingModal 
-        mentor={selectedMentor}
+        mentor={null}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
