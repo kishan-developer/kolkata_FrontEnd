@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { 
-  Phone, Mail, MapPin, Send, MessageCircle, 
+  Phone, Mail, Send, MessageCircle, 
   ExternalLink, Clock, Facebook, Twitter, Linkedin 
 } from 'lucide-react';
 import Section_Banner from '../Components/Section_Banner';
@@ -242,8 +242,7 @@ export default function ContactPage() {
               <div className="space-y-4 sm:space-y-6">
                  {[
                    { icon: <Phone size={24}/>, label: "Institutional Hotline", val: "+91 98765 43210", bg: "bg-slate-50", text: "text-[#0F172A]" },
-                   { icon: <Mail size={24}/>, label: "Engagement Mail", val: "info@vyaparsewa.com", bg: "bg-slate-50", text: "text-[#0F172A]" },
-                   { icon: <MapPin size={24}/>, label: "Headquarters", val: "Plot 89, Okhla PH-3, New Delhi - 110020", bg: "bg-slate-50", text: "text-[#0F172A]" }
+                   { icon: <Mail size={24}/>, label: "Engagement Mail", val: "info@vyaparsewa.com", bg: "bg-slate-50", text: "text-[#0F172A]" }
                  ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4 sm:gap-6 p-6 sm:p-8 rounded-[1rem] border border-slate-100 bg-white hover:shadow-xl hover:shadow-slate-100 transition-all duration-500 group">
                        <div className={`p-3 sm:p-4 ${item.bg} ${item.text} rounded-[1rem] group-hover:bg-[#0F172A] group-hover:text-white transition-all duration-500 shrink-0`}>
@@ -278,22 +277,6 @@ export default function ContactPage() {
                  </div>
               </div>
 
-           </div>
-        </div>
-
-        {/* Geographic Hub */}
-        <div className="mt-32">
-           <div className="rounded-[1rem] overflow-hidden border-[12px] border-slate-50 bg-slate-100 aspect-video md:aspect-[21/9] relative shadow-2xl group">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11211.205934395256!2d77.2612!3d28.5355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3c417c8007d%3A0xc3191c964175317d!2sOkhla%20Phase%20III%2C%20Okhla%20Industrial%20Estate%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1713070000000!5m2!1sen!2sin" 
-                className="w-full h-full border-0 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
-                allowFullScreen={true} 
-                loading="lazy" 
-              ></iframe>
-              <div className="absolute top-10 left-10 p-6 bg-white/90 backdrop-blur-md rounded-[1rem] border border-white/20 shadow-2xl pointer-events-none group-hover:translate-x-4 transition-transform duration-700">
-                 <p className="text-[10px] font-black text-[#2663eb] uppercase tracking-widest mb-1">HQ Direction</p>
-                 <p className="text-sm font-black text-[#0F172A]">Sector 3, Okhla Estate <br/> New Delhi, IN</p>
-              </div>
            </div>
         </div>
 

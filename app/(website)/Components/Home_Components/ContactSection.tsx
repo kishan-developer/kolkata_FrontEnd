@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock } from "lucide-react";
+import { Mail, Phone, Send, MessageSquare, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 
