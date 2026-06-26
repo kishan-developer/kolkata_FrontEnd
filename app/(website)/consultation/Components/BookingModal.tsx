@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, Clock, CheckCircle2, ChevronRight, MapPin, User, Mail, Phone } from 'lucide-react';
+import { X, Calendar, Clock, CheckCircle2, ChevronRight, Video, User, Mail, Phone } from 'lucide-react';
 import { Mentor } from '../../consultation/data/mentors';
 import { toast } from 'react-hot-toast';
 
@@ -311,7 +311,7 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
               <div className="bg-slate-50 p-6 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-white rounded-[1rem] border border-slate-200">
-                    <MapPin className="w-4 h-4 text-[#2663eb]" />
+                    <Video className="w-4 h-4 text-[#2663eb]" />
                   </div>
                   <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Virtual Session</span>
                 </div>
