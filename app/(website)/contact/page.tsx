@@ -227,15 +227,20 @@ export default function ContactPage() {
            <div className="lg:w-[35%] w-full mt-8 lg:mt-0 space-y-8 lg:space-y-12 animate-in fade-in slide-in-from-right-8 delay-300 duration-700">
               
               {/* WhatsApp Expedited Line */}
-              <div className="bg-[#2663eb] p-6 sm:p-12 rounded-[1rem] text-white space-y-6 sm:space-y-8 shadow-2xl shadow-[#2663eb]/20 relative overflow-hidden group cursor-pointer border border-white/10">
+              <div className="bg-[#2663eb] p-6 sm:p-12 rounded-[1rem] text-white space-y-6 sm:space-y-8 shadow-2xl shadow-[#2663eb]/20 relative overflow-hidden group border border-white/10">
                  <div className="absolute top-0 left-0 p-10 opacity-10 group-hover:-rotate-6 transition-transform duration-700 pointer-events-none">
                     <MessageCircle size={140} />
                  </div>
                  <h3 className="text-2xl sm:text-3xl font-black leading-none">Expedited <br/> Desk</h3>
                  <p className="text-white/80 font-medium leading-relaxed text-sm sm:text-base">For urgent queries regarding notices or time-bound filings.</p>
-                 <button className="flex items-center gap-3 bg-[#0F172A] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-[1rem] font-black hover:bg-slate-900 transition-all shadow-xl text-sm sm:text-base">
+                 <a 
+                   href="https://wa.me/919876543210" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="flex items-center gap-3 bg-[#0F172A] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-[1rem] font-black hover:bg-slate-900 transition-all shadow-xl text-sm sm:text-base"
+                 >
                     WhatsApp <ExternalLink size={18} className="text-[#2663eb]" />
-                 </button>
+                 </a>
               </div>
 
               {/* Direct Channels */}
