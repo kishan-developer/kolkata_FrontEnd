@@ -26,7 +26,7 @@ export default function RootLayout({
         className={`${firaSans.variable} font-fira antialiased`}
       >
         {children}
-        <ChatWidget />
+        {/* <ChatWidget /> */}
       </body>
     </html>
   );

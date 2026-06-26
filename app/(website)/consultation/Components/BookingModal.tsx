@@ -27,7 +27,7 @@ const BookingModal = ({ mentor, isOpen, onClose }: BookingModalProps) => {
   const dates = mentor?.bookedSlots ? Object.keys(mentor.bookedSlots) : ["Mon 24 Apr", "Tue 25 Apr", "Wed 26 Apr"];
   const timeSlots = mentor?.availability || ["10:00 AM", "11:00 AM", "2:00 PM", "3:00 PM", "4:00 PM"];
   const mentorTitle = mentor?.title || "Expert Consultation";
-  const mentorPrice = mentor?.price || "999";
+  const mentorPrice = mentor?.price || "499";
   const mentorName = mentor?.name || "VyaparSewa Expert";
 
   const handleBook = async () => {
